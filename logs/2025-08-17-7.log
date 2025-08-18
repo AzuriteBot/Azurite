@@ -1,0 +1,17 @@
+[2025-08-17 20:36:04] [INFO] default.zip
+[2025-08-17 20:36:04] [INFO]  - mapping.json
+[2025-08-17 20:36:04] [INFO]  - module.yml
+[2025-08-17 20:36:04] [INFO]  - assets/
+[2025-08-17 20:36:04] [INFO]  - commandGroup/
+[2025-08-17 20:36:04] [INFO]  - commands/
+[2025-08-17 20:36:04] [INFO]  - commands/pingCommand.py
+[2025-08-17 20:36:04] [INFO]  - commands/__init__.py
+[2025-08-17 20:36:04] [INFO]  - events/
+[2025-08-17 20:36:04] [INFO] Checking package...
+[2025-08-17 20:36:04] [INFO] package discord.py exists!
+[2025-08-17 20:36:04] [INFO] package aiohttp exists!
+[2025-08-17 20:36:04] [INFO] package colorama exists!
+[2025-08-17 20:36:04] [INFO] Load pingCommand
+[2025-08-17 20:36:04] [INFO] Success load pingCommand
+[2025-08-17 20:36:04] [INFO] 1
+[2025-08-17 20:36:04] [INFO] Bot đã chạy

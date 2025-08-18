@@ -1,0 +1,22 @@
+{
+  "name": "Azurite Default",
+  "module": {
+    "events": [],
+    "command": ["pingCommand", "banCommand"],
+    "commandGroup": []
+  },
+  "License": {
+    "enable": false,
+    "api": "LicenseApiHere"
+  },
+  "require": {
+    "plugin": [
+      ""
+    ],
+    "packages": [
+      "discord.py",
+      "aiohttp",
+      "colorama"
+    ]
+  }
+}

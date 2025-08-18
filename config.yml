@@ -1,0 +1,20 @@
+#     ___              _ __
+#    / _ |_____ ______(_) /____
+#   / __ /_ / // / __/ / __/ -_)
+#  /_/ |_/__|_,_/_/ /_/\__/\__/
+#
+Token: ''
+
+shard:
+  enable: false
+  shard_id: 0
+  shard_count: 0
+
+Loader:
+  mappingFile: 'mapping.json'
+  events: true
+  commands: true
+  commandsGroup: true
+
+other:
+  debug: false
