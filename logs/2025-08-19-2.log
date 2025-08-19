@@ -1,0 +1,13 @@
+[92m[2025-08-19 08:06:41] [INFO] [0mRunning python 3.13.5
+[92m[2025-08-19 08:06:41] [INFO] [0mPython path: C:\Users\justk\PycharmProjects\Azurite\.venv\Scripts\python.exe
+[33m[2025-08-19 08:06:41] [LOADING] [0mLoading Azurite
+[92m[2025-08-19 08:06:41] [INFO] [0mBot path: C:\Users\justk\PycharmProjects\Azurite
+[92m[2025-08-19 08:06:41] [INFO] [0mLog name: 2025-08-19-2.log
+[2025-08-19 08:06:44] [LOADER] Module AzuriteDefault valid
+[2025-08-19 08:06:44] [LOADER] Currently checking the module
+[2025-08-19 08:06:44] [LOADER] Loading 1
+[2025-08-19 08:06:44] [LOADER] Load module AzuriteDefault
+[92m[2025-08-19 08:06:45] [INFO] [0m[AzuriteDefault] Hello world, I am the default module of Azurite
+[32m[2025-08-19 08:06:45] [SUCCESS] [0mDone, waiting for sync..
+[32m[2025-08-19 08:06:45] [SUCCESS] [0m2 slash commands
+[32m[2025-08-19 08:06:45] [SUCCESS] [0mBot has started
