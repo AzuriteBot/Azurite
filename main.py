@@ -8,6 +8,7 @@ from discord.ext import commands
 #local lib
 from Azurite.Logger import AzuriteLogger
 
+from Initialization import initialization
 from utils.pathManager import path
 from utils.Logger import Logger
 from utils.setupLog import setupLog
@@ -15,6 +16,8 @@ from Loader.White import white
 from Loader.Install import checkInstall
 from Loader.loader import loader
 
+
+initialization()
 #create log file
 fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
 existing = [
