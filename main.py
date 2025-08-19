@@ -5,12 +5,15 @@ import discord
 from datetime import datetime
 from discord.ext import commands
 
+#local lib
 from Azurite.Logger import AzuriteLogger
 
 from utils.pathManager import path
 from utils.Logger import Logger
 from utils.setupLog import setupLog
-from Loader import Loader
+from Loader.White import white
+from Loader.Install import checkInstall
+from Loader.loader import loader
 
 #create log file
 fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
@@ -40,8 +43,13 @@ async def on_ready():
     for module in os.listdir(os.path.join('modules')):
         if module.endswith('.zip'):
             moduleList.append(module)
-    loader = Loader(moduleList=moduleList, app=app, Logger=Logger)
-    load = await loader.load()
+    validModule = white(moduleList, Logger=Logger)
+    checkInstall(moduleList=moduleList, Logger=Logger)
+    Loader = loader(app=app, moduleList=validModule, Logger=Logger)
+    await Loader.load()
+
+    Logger.SUCCESS("Done, waiting for sync..")
+
     sync = await app.tree.sync()
     Logger.SUCCESS(message=f"{len(sync)} slash command" if len(sync) == 1 else f"{len(sync)} slash commands")
     Logger.SUCCESS(message='Bot has started')

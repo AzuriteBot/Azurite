@@ -1,6 +1,0 @@
-[2025-08-17 20:31:12] [INFO] Checking package...
-[2025-08-17 20:31:12] [INFO] Install discord.py...
-[2025-08-17 20:31:14] [INFO] package aiohttp exists!
-[2025-08-17 20:31:14] [INFO] package colorama exists!
-[2025-08-17 20:31:14] [INFO] Load pingCommand
-[2025-08-17 20:31:14] [INFO] Success load pingCommand

@@ -17,7 +17,7 @@ class Logger:
             f.write(message)
     def _log(self, level: str, color: str, message: str):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        console_msg = f"{color}[{timestamp}] [{level}] {Style.RESET_ALL}{message}"
+        console_msg = f"{color}["+ Fore.WHITE + f"{timestamp}{color}] [" + Fore.BLUE + f"Azurite" + Fore.WHITE + f"/{color}{level}] {Style.RESET_ALL}{message}"
         file_msg    = f"{color}[{timestamp}] [{level}] {Style.RESET_ALL}{message}\n"
 
         print(console_msg)

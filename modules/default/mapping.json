@@ -1,14 +1,17 @@
 {
   "name": "Azurite Default",
   "module": {
+    "mainEvent": "main_events.py",
+    "path": {
+      "commands": "commands",
+      "commandGroup": "commandGroup",
+      "events": "events"
+    },
     "events": [],
     "command": ["pingCommand", "banCommand"],
     "commandGroup": []
   },
-  "License": {
-    "enable": false,
-    "api": "LicenseApiHere"
-  },
+
   "require": {
     "plugin": [
       ""
