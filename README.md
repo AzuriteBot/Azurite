@@ -1,11 +1,15 @@
 # Azurite discord bot
 Just like Spigot allows you to extend a Minecraft server through plugins, Azurite Discord Bot is designed as a flexible platform to expand Discord. Users can quickly install available modules or develop custom ones, creating a versatile bot ecosystem that meets all kinds of needs
+
+![AzuriteLogo](https://media.discordapp.net/attachments/966486152255262801/1407174181438754948/301DE41F-2EFC-4EB2-81AD-942818D0B879_Original.png?ex=68a52494&is=68a3d314&hm=5c62584e0f1849e35211b2972e414a73202098df7634f376aa83fe836ea82983&=&width=891&height=391)
 # requirements
 ```
 - python 3.8+
 - discord bot token
 - Potato pc
 ```
+
+
 
 # install
 
@@ -59,3 +63,4 @@ However, you must:
 In short: The software is provided "as-is", without warranty of any kind.
 
 Learn more about MIT License
+
