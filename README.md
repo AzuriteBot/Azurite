@@ -9,7 +9,8 @@ Just like Spigot allows you to extend a Minecraft server through plugins, Azurit
 - Potato pc
 ```
 
-
+# Docs
+> How to make a module: [click here](https://github.com/Notkenftr/Azurite/blob/main/docs/MODULE.md)
 
 # install
 
