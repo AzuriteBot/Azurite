@@ -38,9 +38,15 @@ def main(Token, Logger):
         Logger.SUCCESS(message='Bot has started')
     if Token != False:
         app.run(Token)
+
+
+
 if __name__ == "__main__":
     fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
-    existing = [f for f in os.listdir(f'logs')if f.startswith(fileName) and f.endswith('.log')]
+    existing = [f for f in os.listdir(f'logs')
+                if f.startswith(fileName)
+                and
+                f.endswith('.log')]
     fileNum = len(existing) + 1
     Logger = Logger(logName=f"{fileName}-{fileNum}.log")
     AzuriteLogger().set_base_logger(logger=Logger)

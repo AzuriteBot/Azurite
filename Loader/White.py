@@ -31,11 +31,11 @@ def white(moduleList, Logger):
                     data = json.load(f)
                     missing = [k for k in base if k not in data]
                     if missing:
-                        Logger.ERROR(f"{module} thiếu key: {missing}")
+                        Logger.ERROR(f"{module.split('.')[0]} 0 valid!")
                         continue
                     Logger.LOADER(f"Module {module.split('.')[0]} valid")
                     validModule.append(module)
         except Exception as e:
-            Logger.ERROR(f"{module} not valid!")
+            Logger.ERROR(f"{module.split('.')[0]} not valid!")
             continue
     return validModule
