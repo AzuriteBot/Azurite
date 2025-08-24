@@ -1,20 +1,24 @@
 import os
-import sys, platform
+import sys
+import platform
+from datetime import datetime
+
 import yaml
 import discord
-from datetime import datetime
 from discord.ext import commands
 
-#local lib
+# local libs
 from Azurite.Logger import AzuriteLogger
+from Initialization import initialization
 
 from utils.Logger import Logger
-from Initialization import initialization
 from utils.pathManager import path
+from utils.setupLog import setupLog
+from utils.tokenCheck import tokenChecker
+
 from Loader.White import white
 from Loader.Install import checkInstall
 from Loader.loader import loader
-from utils.setupLog import setupLog
 
 def main(Token, Logger, useEvents, useCommands, useCommandGroup):
     app = commands.Bot(intents=discord.Intents.default(), command_prefix='!')
@@ -54,6 +58,7 @@ if __name__ == "__main__":
 
     setupLog(Logger=Logger, fileName=fileName, fileNum=fileNum) #setup log utils/setupLog.py
 
+    #read config.yml
     with open(path.config, 'r', encoding='utf-8') as configData:
         config = yaml.load(stream=configData, Loader=yaml.SafeLoader)
 
@@ -63,8 +68,12 @@ if __name__ == "__main__":
     useCommands = config['Loader']['commands']
     useCommandGroup = config['Loader']['commandsGroup']
 
-    if Token == "":
+    checkToken = tokenChecker(Token) #check token
+
+    if checkToken == False:
         Logger.ERROR("Token not found")
         Token = False
-    initialization()
+
+    initialization() #create logs, cache...
+
     main(Logger=Logger, Token=Token, useEvents=useEvents, useCommands=useCommands, useCommandGroup=useCommandGroup)
