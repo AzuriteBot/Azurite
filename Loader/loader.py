@@ -6,10 +6,14 @@ import zipfile
 
 from utils.pathManager import path
 class loader():
-    def __init__(self, app, moduleList, Logger):
+    def __init__(self, app, moduleList, Logger, command, commandGroup, events):
         self.app = app
         self.moduleList = moduleList,
         self.Logger = Logger
+
+        self.command = command,
+        self.commandGroup = commandGroup,
+        self.events = events
 
         self.moduleEvent = False
         super().__init__()
@@ -44,40 +48,43 @@ class loader():
                         moduleEvent = importlib.import_module(mainEvent.split('.')[0])
                         moduleEvent.on_ready()
 
-                    if len(eventsList) > 0:
-                        for item in commandList:
-                            try:
-                                module_name = f"{eventPath}.{item}"
-                                eventModule = importlib.import_module(module_name)
-                                className = item
-                                A = getattr(eventModule, className)
-                                cog = A(app=self.app)
-                                await self.app.add_cog(cog)
-                            except Exception as e:
-                                self.Logger.ERROR(message=e)
-                                continue
-                    if len(commandList) > 0:
-                        for item in commandList:
-                            try:
-                                module_name = f"{commandPath}.{item}"
-                                commandModule = importlib.import_module(module_name)
-                                className = item
-                                A = getattr(commandModule, className)
-                                cog = A(app=self.app)
-                                await self.app.add_cog(cog)
-                            except Exception as e:
-                                self.Logger.ERROR(message=e)
-                                continue
-                    if len(commandGroupList) > 0:
-                        for item in commandGroupList:
-                            try:
-                                module_name = f"{commandGroup}.{item}"
-                                commandModule = importlib.import_module(module_name)
-                                className = item
-                                A = getattr(commandModule, className)
-                                cog = A(app=self.app)
-                                await self.app.add_command(cog)
-                            except Exception as e:
-                                self.Logger.ERROR(message=e)
-                                continue
+                    if self.events == True:
+                        if len(eventsList) > 0:
+                            for item in commandList:
+                                try:
+                                    module_name = f"{eventPath}.{item}"
+                                    eventModule = importlib.import_module(module_name)
+                                    className = item
+                                    A = getattr(eventModule, className)
+                                    cog = A(app=self.app)
+                                    await self.app.add_cog(cog)
+                                except Exception as e:
+                                    self.Logger.ERROR(message=e)
+                                    continue
+                    if self.command == True:
+                        if len(commandList) > 0:
+                            for item in commandList:
+                                try:
+                                    module_name = f"{commandPath}.{item}"
+                                    commandModule = importlib.import_module(module_name)
+                                    className = item
+                                    A = getattr(commandModule, className)
+                                    cog = A(app=self.app)
+                                    await self.app.add_cog(cog)
+                                except Exception as e:
+                                    self.Logger.ERROR(message=e)
+                                    continue
+                    if self.commandGroup == True:
+                        if len(commandGroupList) > 0:
+                            for item in commandGroupList:
+                                try:
+                                    module_name = f"{commandGroup}.{item}"
+                                    commandModule = importlib.import_module(module_name)
+                                    className = item
+                                    A = getattr(commandModule, className)
+                                    cog = A(app=self.app)
+                                    await self.app.add_command(cog)
+                                except Exception as e:
+                                    self.Logger.ERROR(message=e)
+                                    continue
 

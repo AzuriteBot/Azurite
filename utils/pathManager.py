@@ -4,3 +4,4 @@ class path:
     config = os.path.join(baseDir, 'config.yml')
     log = os.path.join(baseDir, 'logs')
     modules = os.path.join(baseDir, 'modules')
+    azuritejson = os.path.join(baseDir,'azurite.json')

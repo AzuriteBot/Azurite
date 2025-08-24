@@ -16,7 +16,7 @@ from Loader.Install import checkInstall
 from Loader.loader import loader
 from utils.setupLog import setupLog
 
-def main(Token, Logger):
+def main(Token, Logger, useEvents, useCommands, useCommandGroup):
     app = commands.Bot(intents=discord.Intents.default(), command_prefix='!')
 
     @app.event
@@ -28,7 +28,7 @@ def main(Token, Logger):
                 moduleList.append(module)
         validModule = white(moduleList, Logger=Logger)
         checkInstall(moduleList=moduleList, Logger=Logger)
-        Loader = loader(app=app, moduleList=validModule, Logger=Logger)
+        Loader = loader(app=app, moduleList=validModule, Logger=Logger, command=useCommands, commandGroup=useCommandGroup, events=useEvents)
         await Loader.load()
 
         Logger.SUCCESS("Done, waiting for sync..")
@@ -49,14 +49,22 @@ if __name__ == "__main__":
                 f.endswith('.log')]
     fileNum = len(existing) + 1
     Logger = Logger(logName=f"{fileName}-{fileNum}.log")
-    AzuriteLogger().set_base_logger(logger=Logger)
-    setupLog(Logger=Logger, fileName=fileName, fileNum=fileNum)
+
+    AzuriteLogger().set_base_logger(logger=Logger) #set base logger for azurite lib
+
+    setupLog(Logger=Logger, fileName=fileName, fileNum=fileNum) #setup log utils/setupLog.py
+
     with open(path.config, 'r', encoding='utf-8') as configData:
         config = yaml.load(stream=configData, Loader=yaml.SafeLoader)
 
     Token = config['Token']
+    mappingFile = config['Loader']['mappingFile']
+    useEvents = config['Loader']['events']
+    useCommands = config['Loader']['commands']
+    useCommandGroup = config['Loader']['commandsGroup']
+
     if Token == "":
         Logger.ERROR("Token not found")
         Token = False
     initialization()
-    main(Logger=Logger, Token=Token)
+    main(Logger=Logger, Token=Token, useEvents=useEvents, useCommands=useCommands, useCommandGroup=useCommandGroup)
