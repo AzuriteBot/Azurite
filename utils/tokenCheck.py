@@ -1,9 +1,12 @@
 import requests
 
-def tokenChecker(token):
-    header = {"Authorization": token}
-    res = requests.get(url='https://discord.com/api/v10/users/@me', headers=header)
+def tokenChecker(token: str, Logger):
+    header = {"Authorization": f"Bot {token}"}
+
+    res = requests.get("https://discord.com/api/v10/users/@me", headers=header)
+    Logger.LOAD(f"Api Status code: {res.status_code}")
     if res.status_code == 200:
-        return True
+        Logger.LOAD("Valid Token!")
+        return True, res.json()
     else:
-        return False
+        return False, res.status_code

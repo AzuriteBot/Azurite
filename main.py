@@ -68,7 +68,7 @@ if __name__ == "__main__":
     useCommands = config['Loader']['commands']
     useCommandGroup = config['Loader']['commandsGroup']
 
-    checkToken = tokenChecker(Token) #check token
+    checkToken = tokenChecker(Token, Logger=Logger) #check token
 
     if checkToken == False:
         Logger.ERROR("Token not found")
