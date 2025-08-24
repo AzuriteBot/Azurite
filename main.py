@@ -20,7 +20,13 @@ from Loader.White import white
 from Loader.Install import checkInstall
 from Loader.loader import loader
 
-def main(Token, Logger, useEvents, useCommands, useCommandGroup):
+# local
+from local.events.pingCheck import pingCheck
+
+def main(Token,
+         Logger,
+         useEvents, useCommands, useCommandGroup,
+         autoPingCheck, autoPingCheckInterval):
     app = commands.Bot(intents=discord.Intents.default(), command_prefix='!')
 
     @app.event
@@ -39,6 +45,10 @@ def main(Token, Logger, useEvents, useCommands, useCommandGroup):
 
         sync = await app.tree.sync()
         Logger.SUCCESS(message=f"{len(sync)} slash command" if len(sync) == 1 else f"{len(sync)} slash commands")
+        Logger.INFO("Load local events")
+        if autoPingCheck == True:
+            pingTask = pingCheck(bot=app,interval=autoPingCheckInterval)
+            pingTask.start()
         Logger.SUCCESS(message='Bot has started')
     if Token != False:
         app.run(Token)
@@ -68,6 +78,10 @@ if __name__ == "__main__":
     useCommands = config['Loader']['commands']
     useCommandGroup = config['Loader']['commandsGroup']
 
+    #local
+    autoPingCheck = config['autoPingCheck']['enable']
+    autoPingCheckInterval = config['autoPingCheck']['interval']
+
     checkToken = tokenChecker(Token, Logger=Logger) #check token
 
     if checkToken == False:
@@ -76,4 +90,8 @@ if __name__ == "__main__":
 
     initialization() #create logs, cache...
 
-    main(Logger=Logger, Token=Token, useEvents=useEvents, useCommands=useCommands, useCommandGroup=useCommandGroup)
+    main(Logger=Logger, Token=Token,
+         useEvents=useEvents, useCommands=useCommands,
+         useCommandGroup=useCommandGroup,
+         autoPingCheck=autoPingCheck, autoPingCheckInterval=autoPingCheckInterval)
+

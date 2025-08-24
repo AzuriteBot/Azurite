@@ -3,7 +3,13 @@
 #   / __ /_ / // / __/ / __/ -_)
 #  /_/ |_/__|_,_/_/ /_/\__/\__/
 #
+
 Token: ''
+
+autoPingCheck:
+  enable: true
+  interval: 5
+
 
 shard:
   enable: false
