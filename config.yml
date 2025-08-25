@@ -8,7 +8,9 @@ Token: ''
 
 autoPingCheck:
   enable: true
-  interval: 5
+  interval: 260
+  round: 2 # 2.1234 = 2.12
+  saveToLog: true
 
 
 shard:

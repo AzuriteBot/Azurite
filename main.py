@@ -23,15 +23,27 @@ from Loader.loader import loader
 # local
 from local.events.pingCheck import pingCheck
 
+
+def initLogFile():
+    fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
+    existing = [f for f in os.listdir(f'logs')
+                if f.startswith(fileName)
+                and
+                f.endswith('.log')]
+    fileNum = len(existing) + 1
+    return f"{fileName}-{fileNum}.log", fileName, fileNum
+
+
 def main(Token,
          Logger,
          useEvents, useCommands, useCommandGroup,
-         autoPingCheck, autoPingCheckInterval):
+         autoPingCheck, autoPingCheckInterval,  autoPingCheckRound):
     app = commands.Bot(intents=discord.Intents.default(), command_prefix='!')
 
     @app.event
     async def on_ready():
 
+        #init loader and load module
         moduleList = []
         for module in os.listdir(os.path.join('modules')):
             if module.endswith('.zip'):
@@ -45,24 +57,24 @@ def main(Token,
 
         sync = await app.tree.sync()
         Logger.SUCCESS(message=f"{len(sync)} slash command" if len(sync) == 1 else f"{len(sync)} slash commands")
+
+        #load localevents
         Logger.INFO("Load local events")
         if autoPingCheck == True:
-            pingTask = pingCheck(bot=app,interval=autoPingCheckInterval)
+            pingTask = pingCheck(bot=app,Logger=Logger,interval=autoPingCheckInterval, Round=autoPingCheckRound)
             pingTask.start()
         Logger.SUCCESS(message='Bot has started')
+
+
     if Token != False:
         app.run(Token)
 
 
 
 if __name__ == "__main__":
-    fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
-    existing = [f for f in os.listdir(f'logs')
-                if f.startswith(fileName)
-                and
-                f.endswith('.log')]
-    fileNum = len(existing) + 1
-    Logger = Logger(logName=f"{fileName}-{fileNum}.log")
+
+    logName, fileName, fileNum = initLogFile()
+    Logger = Logger(logName=logName)
 
     AzuriteLogger().set_base_logger(logger=Logger) #set base logger for azurite lib
 
@@ -81,6 +93,7 @@ if __name__ == "__main__":
     #local
     autoPingCheck = config['autoPingCheck']['enable']
     autoPingCheckInterval = config['autoPingCheck']['interval']
+    autoPingCheckRound = config['autoPingCheck']['round']
 
     checkToken = tokenChecker(Token, Logger=Logger) #check token
 
@@ -93,5 +106,5 @@ if __name__ == "__main__":
     main(Logger=Logger, Token=Token,
          useEvents=useEvents, useCommands=useCommands,
          useCommandGroup=useCommandGroup,
-         autoPingCheck=autoPingCheck, autoPingCheckInterval=autoPingCheckInterval)
+         autoPingCheck=autoPingCheck, autoPingCheckInterval=autoPingCheckInterval, autoPingCheckRound=autoPingCheckRound)
 
