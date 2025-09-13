@@ -1,3 +1,4 @@
 from .Logger import AzuriteLogger as Logger
 from .app import app
-__all__ = ["Logger", "app"]
+from .config import config
+__all__ = ["Logger", "app", "config"]

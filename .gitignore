@@ -1,6 +1,7 @@
 .idea
 .evn
-test.py
+test.py'
+config.yml
 testConfig.yml
 __pycache__/
 *.pyc
