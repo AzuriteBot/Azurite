@@ -1,6 +1,7 @@
 import os
 import sys
 import platform
+import time
 from datetime import datetime
 
 import yaml
@@ -9,6 +10,7 @@ from discord.ext import commands
 
 # local libs
 from Azurite.Logger import AzuriteLogger
+from Azurite.app import getapp
 from Initialization import initialization
 
 from utils.Logger import Logger
@@ -23,6 +25,7 @@ from Loader.loader import loader
 # local
 from local.events.pingCheck import pingCheck
 
+startTime = time.time()
 
 def initLogFile():
     fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
@@ -64,9 +67,11 @@ def main(Token,
             pingTask = pingCheck(bot=app,Logger=Logger,interval=autoPingCheckInterval, Round=autoPingCheckRound)
             pingTask.start()
         Logger.SUCCESS(message='Bot has started')
+        Logger.SUCCESS(message=f"Done after {round(startTime-time.time(), 2)} s")
 
 
     if Token != False:
+        getapp.set_base_app(app=app)
         app.run(Token)
 
 

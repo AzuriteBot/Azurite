@@ -24,5 +24,9 @@ Loader:
   commands: true
   commandsGroup: true
 
+  multilThread:
+    enable: false
+    thread: auto #1 ,2,... auto
+
 other:
   debug: false

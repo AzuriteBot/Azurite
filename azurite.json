@@ -1,4 +1,10 @@
 {
   "name": "Azurite",
-  "version": "Pre-Alpha-1.0"
+  "version": "A-1.0.0",
+  "build": "1",
+
+  "downloads": {
+    "size": "24.3 mb",
+    "sha256": "0DC333854384BB9A5491677384593366468F94D6D33497529728D1772F4980E2"
+  }
 }
