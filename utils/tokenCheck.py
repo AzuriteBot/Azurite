@@ -7,6 +7,6 @@ def tokenChecker(token: str, Logger):
     Logger.LOAD(f"Api Status code: {res.status_code}")
     if res.status_code == 200:
         Logger.LOAD("Valid Token!")
-        return True, res.json()
+        return True
     else:
-        return False, res.status_code
+        return False

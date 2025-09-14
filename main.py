@@ -23,6 +23,9 @@ from Loader.White import white
 from Loader.Install import checkInstall
 from Loader.loader import loader
 
+# local ui
+from ui.enterToken import enterToken
+
 # local
 from local.events.pingCheck import pingCheck
 
@@ -74,6 +77,26 @@ def main(Token,
     if Token != False:
         getapp.set_base_app(app=app)
         app.run(Token)
+    else:
+        def showUiandCheck():
+            while True:
+                token = enterToken()
+                if tokenChecker(token=token, Logger=Logger):
+                    lines = []
+                    with open(path.config, 'r', encoding='utf-8') as f:
+                        for line in f:
+                            if line.strip().startswith("Token:"):
+                                lines.append(f"Token: '{token}'\n")
+                            else:
+                                lines.append(line)
+
+                    with open(path.config, 'w', encoding='utf-8') as f:
+                        f.writelines(lines)
+
+                    app.run(token)
+                    break
+
+        showUiandCheck()
 
 
 
@@ -102,6 +125,7 @@ if __name__ == "__main__":
     autoPingCheckRound = config['autoPingCheck']['round']
 
     checkToken = tokenChecker(Token, Logger=Logger) #check token
+    print(checkToken)
 
     if checkToken == False:
         Logger.ERROR("Token not found")

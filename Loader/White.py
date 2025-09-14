@@ -23,6 +23,7 @@ base = {
 
 
 def white(moduleList, Logger):
+    """Check if the structure of mapping.json is complete. If it is complete, then mark it as valid."""
     validModule = []
     for module in moduleList:
         try:

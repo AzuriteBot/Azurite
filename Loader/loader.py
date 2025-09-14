@@ -87,4 +87,3 @@ class loader():
                                 except Exception as e:
                                     self.Logger.ERROR(message=e)
                                     continue
-

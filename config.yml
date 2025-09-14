@@ -5,7 +5,6 @@
 #
 
 Token: ''
-
 autoPingCheck:
   enable: true
   interval: 260

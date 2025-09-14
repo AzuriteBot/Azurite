@@ -1,0 +1,13 @@
+[92m[2025-09-14 09:03:38] [INFO] [0mRunning python 3.13.5
+[92m[2025-09-14 09:03:38] [INFO] [0mPython path: C:\Users\justk\PycharmProjects\Azurite\.venv\Scripts\python.exe
+[33m[2025-09-14 09:03:38] [LOADING] [0mLoading Azurite A-1.1.0
+[33m[2025-09-14 09:03:39] [LOADING] [0mBot path: C:\Users\justk\PycharmProjects\Azurite
+[33m[2025-09-14 09:03:39] [LOADING] [0mLog name: 2025-09-14-8.log
+[33m[2025-09-14 09:03:40] [LOADING] [0mApi Status code: 401
+[31m[2025-09-14 09:03:40] [ERROR] [0mToken not found
+[33m[2025-09-14 09:03:47] [LOADING] [0mApi Status code: 200
+[33m[2025-09-14 09:03:47] [LOADING] [0mValid Token!
+[2025-09-14 09:03:50] [LOADER] Module AzuriteDefault valid
+[2025-09-14 09:03:50] [LOADER] Currently checking the module
+[2025-09-14 09:03:50] [LOADER] Loading 1 modules
+[2025-09-14 09:03:50] [LOADER] Load module A
