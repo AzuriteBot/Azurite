@@ -5,3 +5,26 @@
 [33m[2025-09-14 09:09:32] [LOADING] [0mLog name: 2025-09-14-11.log
 [33m[2025-09-14 09:09:33] [LOADING] [0mApi Status code: 401
 [31m[2025-09-14 09:09:33] [ERROR] [0mToken not found
+[33m[2025-09-14 09:10:07] [LOADING] [0mApi Status code: 200
+[33m[2025-09-14 09:10:07] [LOADING] [0mValid Token!
+[2025-09-14 09:10:10] [LOADER] Module AzuriteDefault valid
+[2025-09-14 09:10:10] [LOADER] Currently checking the module
+[2025-09-14 09:10:10] [LOADER] Loading 1
+[2025-09-14 09:10:10] [LOADER] Load module AzuriteDefault
+[92m[2025-09-14 09:10:10] [INFO] [0m[AzuriteDefault] Hello world, I am the default module of Azurite
+[32m[2025-09-14 09:10:10] [SUCCESS] [0mDone, waiting for sync..
+[32m[2025-09-14 09:10:11] [SUCCESS] [0m0 slash commands
+[92m[2025-09-14 09:10:11] [INFO] [0mLoad local events
+[32m[2025-09-14 09:10:11] [SUCCESS] [0mBot has started
+[32m[2025-09-14 09:10:11] [SUCCESS] [0mDone after -39.11 s
+[92m[2025-09-14 09:10:11] [INFO] [0mPing: 236.88 ms
+[92m[2025-09-14 09:14:31] [INFO] [0mPing: 240.72 ms
+[92m[2025-09-14 09:18:51] [INFO] [0mPing: 235.18 ms
+[92m[2025-09-14 09:23:11] [INFO] [0mPing: 231.59 ms
+[92m[2025-09-14 09:27:31] [INFO] [0mPing: 240.54 ms
+[92m[2025-09-14 09:31:51] [INFO] [0mPing: 244.39 ms
+[92m[2025-09-14 09:36:11] [INFO] [0mPing: 238.96 ms
+[92m[2025-09-14 09:40:31] [INFO] [0mPing: 241.61 ms
+[92m[2025-09-14 09:44:51] [INFO] [0mPing: 236.45 ms
+[92m[2025-09-14 09:49:11] [INFO] [0mPing: 233.18 ms
+[92m[2025-09-14 09:53:31] [INFO] [0mPing: 231.43 ms

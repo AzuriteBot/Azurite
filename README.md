@@ -42,7 +42,7 @@ Just like Spigot allows you to extend a Minecraft server through plugins, Azurit
 > run bot
 > 
 > ```bash
-> python main.py
+> python app.py
 > ```
 
 # License
