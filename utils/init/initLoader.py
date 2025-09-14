@@ -1,5 +1,6 @@
 #MIT License
 
+
 #Copyright (c) 2025 kenftr
 
 #Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,3 +20,29 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
+
+import os
+from utils.pathManager import path
+
+from Loader.White import white
+from Loader.Install import checkInstall
+from Loader.loader import loader
+
+from Azurite import app
+
+async def initLoader(Logger,
+                     app,
+                     command,
+                     commandGroup,
+                     events):
+    """initialize loader"""
+
+
+    moduleList = []
+    for module in os.listdir(path.modules):
+        if module.endswith('.zip'):
+            moduleList.append(module)
+    validModule = white(moduleList=moduleList, Logger=Logger) #check module, if valid then add to validModule
+    checkInstall(moduleList=moduleList, Logger=Logger) # check if the module needs to install any packages
+    Loader = loader(app=app, moduleList=validModule, Logger=Logger, command=command, commandGroup=commandGroup, events=events)
+    await Loader.load()

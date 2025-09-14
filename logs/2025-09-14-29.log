@@ -1,0 +1,11 @@
+[92m[2025-09-14 15:50:46] [INFO] [0mRunning python 3.13.5
+[92m[2025-09-14 15:50:47] [INFO] [0mPython path: C:\Users\justk\PycharmProjects\Azurite\.venv\Scripts\python.exe
+[33m[2025-09-14 15:50:47] [LOADING] [0mLoading Azurite A-1.1.0
+[33m[2025-09-14 15:50:47] [LOADING] [0mBot path: C:\Users\justk\PycharmProjects\Azurite
+[33m[2025-09-14 15:50:47] [LOADING] [0mLog name: 2025-09-14-29.log
+[33m[2025-09-14 15:50:48] [LOADING] [0mApi Status code: 200
+[33m[2025-09-14 15:50:48] [LOADING] [0mValid Token!
+[2025-09-14 15:50:52] [LOADER] Module AzuriteDefault valid
+[2025-09-14 15:50:52] [LOADER] Currently checking the module
+[2025-09-14 15:50:52] [LOADER] Loading 1
+[2025-09-14 15:50:52] [LOADER] Load module A

@@ -40,8 +40,9 @@ from utils.pathManager import path
 from utils.setupLog import setupLog
 from utils.tokenCheck import tokenChecker
 
-from Loader.White import white
-from Loader.Install import checkInstall
+from utils.init.initLogFile import initLogFile
+
+from utils.init.initLoader import initLoader
 from Loader.loader import loader
 
 # local ui
@@ -52,15 +53,6 @@ from local.events.pingCheck import pingCheck
 
 startTime = time.time()
 
-def initLogFile():
-    fileName = f"{datetime.now().strftime("%Y-%m-%d")}"
-    existing = [f for f in os.listdir(f'logs')
-                if f.startswith(fileName)
-                and
-                f.endswith('.log')]
-    fileNum = len(existing) + 1
-    return f"{fileName}-{fileNum}.log", fileName, fileNum
-
 
 def main(Token,
          Logger,
@@ -70,30 +62,17 @@ def main(Token,
 
     @app.event
     async def on_ready():
-
-        #init loader and load module
-        moduleList = []
-        for module in os.listdir(os.path.join('modules')):
-            if module.endswith('.zip'):
-                moduleList.append(module)
-        validModule = white(moduleList, Logger=Logger)
-        checkInstall(moduleList=moduleList, Logger=Logger)
-        Logger.DEBUG(f"{type(useCommands)}")
-        Loader = loader(app=app, moduleList=validModule, Logger=Logger, command=useCommands, commandGroup=useCommandGroup, events=useEvents)
-        await Loader.load()
-
+        await initLoader(Logger=Logger, app=app, command=useCommands, commandGroup=useCommandGroup, events=useEvents)
         Logger.SUCCESS("Done, waiting for sync..")
-
         sync = await app.tree.sync()
         Logger.SUCCESS(message=f"{len(sync)} slash command" if len(sync) == 1 else f"{len(sync)} slash commands")
-
         #load localevents
         Logger.INFO("Load local events")
         if autoPingCheck == True:
             pingTask = pingCheck(bot=app,Logger=Logger,interval=autoPingCheckInterval, Round=autoPingCheckRound)
             pingTask.start()
         Logger.SUCCESS(message='Bot has started')
-        Logger.SUCCESS(message=f"Done after {round(startTime-time.time(), 2)} s")
+        Logger.SUCCESS(message=f"Done after {round(time.time() - startTime, 2)} s")
 
 
     if Token != False:
