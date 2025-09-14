@@ -8,7 +8,7 @@
       "events": "events"
     },
     "events": [],
-    "command": ["pingCommand", "banCommand"],
+    "command": ["pingCommand", "banCommand", "muteCommand", "avatarCommand"],
     "commandGroup": []
   },
 

@@ -10,4 +10,4 @@ class pingCommand(commands.Cog):
     async def ping(self, interaction: discord.Interaction):
         await interaction.response.defer(thinking=True)
         latency = self.app.latency
-        await interaction.followup.send(f"Pong! ``{latency}`` ms")
+        await interaction.followup.send(f"Pong! ``{round(latency * 1000, 2)}`` ms")
