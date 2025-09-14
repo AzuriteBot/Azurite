@@ -125,7 +125,6 @@ if __name__ == "__main__":
     autoPingCheckRound = config['autoPingCheck']['round']
 
     checkToken = tokenChecker(Token, Logger=Logger) #check token
-    print(checkToken)
 
     if checkToken == False:
         Logger.ERROR("Token not found")
