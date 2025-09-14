@@ -22,8 +22,6 @@
 
 
 import os
-import sys
-import platform
 import time
 from datetime import datetime
 
@@ -80,6 +78,7 @@ def main(Token,
                 moduleList.append(module)
         validModule = white(moduleList, Logger=Logger)
         checkInstall(moduleList=moduleList, Logger=Logger)
+        Logger.DEBUG(f"{type(useCommands)}")
         Loader = loader(app=app, moduleList=validModule, Logger=Logger, command=useCommands, commandGroup=useCommandGroup, events=useEvents)
         await Loader.load()
 
@@ -154,6 +153,8 @@ if __name__ == "__main__":
         Token = False
 
     initialization() #create logs, cache...
+
+
 
     main(Logger=Logger, Token=Token,
          useEvents=useEvents, useCommands=useCommands,

@@ -31,9 +31,10 @@ baseDir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'logs'))
 os.makedirs(baseDir, exist_ok=True)
 
 class Logger:
-    def __init__(self, logName: str):
-        self.logName = logName
+    def __init__(self, logName: str, debug: bool = None):
         super().__init__()
+        self.logName = logName
+        self.debug = debug
 
     def _write(self, message: str):
         with open(f"{baseDir}/{self.logName}", 'a', encoding='utf-8') as f:
@@ -66,7 +67,8 @@ class Logger:
         self._log("ERROR", Fore.RED, message)
 
     def DEBUG(self, message: str):
-        self._log("DEBUG", Fore.CYAN, message)
+        if self.debug == True:
+            self._log("DEBUG", Fore.CYAN, message)
 
     def CRITICAL(self, message: str):
         self._log("CRITICAL", Fore.MAGENTA + Style.BRIGHT, message)

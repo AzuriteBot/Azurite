@@ -29,18 +29,19 @@ import zipfile
 from utils.pathManager import path
 class loader():
     def __init__(self, app, moduleList, Logger, command, commandGroup, events):
+        super().__init__()
         self.app = app
-        self.moduleList = moduleList,
+        self.moduleList = moduleList
         self.Logger = Logger
 
-        self.command = command,
-        self.commandGroup = commandGroup,
+        self.command = command
+        self.commandGroup = commandGroup
         self.events = events
 
         self.moduleEvent = False
-        super().__init__()
 
     async def load(self):
+        self.command, self.commandGroup, self.events = bool(self.command), bool(self.commandGroup), bool(self.events)
         self.Logger.LOADER("Currently checking the module")
         totalModule = [os.path.join(path.modules, f) for f in os.listdir(path.modules) if f.endswith(".zip")]
         self.Logger.LOADER(f"Loading {len(totalModule)}")

@@ -1,0 +1,19 @@
+[92m[2025-09-14 15:21:30] [INFO] [0mRunning python 3.13.5
+[92m[2025-09-14 15:21:31] [INFO] [0mPython path: C:\Users\justk\PycharmProjects\Azurite\.venv\Scripts\python.exe
+[33m[2025-09-14 15:21:31] [LOADING] [0mLoading Azurite A-1.1.0
+[33m[2025-09-14 15:21:31] [LOADING] [0mBot path: C:\Users\justk\PycharmProjects\Azurite
+[33m[2025-09-14 15:21:31] [LOADING] [0mLog name: 2025-09-14-22.log
+[33m[2025-09-14 15:21:33] [LOADING] [0mApi Status code: 200
+[33m[2025-09-14 15:21:33] [LOADING] [0mValid Token!
+[2025-09-14 15:21:37] [LOADER] Module AzuriteDefault valid
+[36m[2025-09-14 15:21:37] [DEBUG] [0m<class 'bool'>
+[2025-09-14 15:21:37] [LOADER] Currently checking the module
+[2025-09-14 15:21:37] [LOADER] Loading 1
+[2025-09-14 15:21:37] [LOADER] Load module AzuriteDefault
+[92m[2025-09-14 15:21:37] [INFO] [0m[AzuriteDefault] Hello world, I am the default module of Azurite
+[32m[2025-09-14 15:21:37] [SUCCESS] [0mDone, waiting for sync..
+[32m[2025-09-14 15:21:37] [SUCCESS] [0m2 slash commands
+[92m[2025-09-14 15:21:37] [INFO] [0mLoad local events
+[32m[2025-09-14 15:21:37] [SUCCESS] [0mBot has started
+[32m[2025-09-14 15:21:37] [SUCCESS] [0mDone after -6.92 s
+[92m[2025-09-14 15:21:37] [INFO] [0mPing: 233.56 ms
